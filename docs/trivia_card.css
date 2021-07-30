@@ -1,5 +1,6 @@
 .new_card_button{
 	display: flex;
+	cursor: pointer;
 }
 
 .front_template{

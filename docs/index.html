@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <title>Trivia Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel = "stylesheet" href="trivia_card.css">
 </head>
 <body>
@@ -10,7 +11,7 @@
 
 <script>
 
-function fill_question() {
+function fill() {
 
   if (document.getElementById(this.id).innerHTML.length > 0) {
     var ask = confirm("Keep as is?");
@@ -34,55 +35,6 @@ function fill_question() {
   }
 }
 
-function fill_option() {
-
-  if (document.getElementById(this.id).innerHTML.length > 0) {
-    var ask = confirm("Keep as is?");
-    if (ask) {
-      var size = confirm("Keep same size?");
-      if (size) {
-      }
-      else {
-        var font_size = prompt("Enter size");
-        this.style.fontSize = font_size + "px";
-      }
-    }
-    else {
-      var change = prompt("Edit", document.getElementById(this.id).innerHTML);
-        document.getElementById(this.id).innerHTML = change;
-    }
-  }
-  else if (document.getElementById(this.id).innerHTML.length == 0) {
-    var option = prompt("Enter option");
-    document.getElementById(this.id).innerHTML= option;
-  }
-}
-
-
-function fill_answer() {
-
-  if (document.getElementById(this.id).innerHTML.length > 0) {
-    var ask = confirm("Keep as is?");
-    if (ask) {
-      var size = confirm("Keep same size?");
-      if (size) {
-      }
-      else {
-        var font_size = prompt("Enter size");
-        this.style.fontSize = font_size + "px";
-      }
-    }
-    else {
-      var change = prompt("Edit", document.getElementById(this.id).innerHTML);
-        document.getElementById(this.id).innerHTML = change;
-    }
-  }
-  else if (document.getElementById(this.id).innerHTML.length == 0) {
-    var answer = prompt("Enter answer");
-    document.getElementById(this.id).innerHTML= answer;
-  }
-}
-
 var count = 1;
 
 function new_card() {
@@ -101,23 +53,23 @@ function new_card() {
   var question = document.createElement('div');
   question.className = "question";
   question.id = "question_" + count;
-  question.onclick = fill_question;
+  question.onclick = fill;
   var option1 = document.createElement('div');
   option1.className = "option";
   option1.id = "option1_" + count;
-  option1.onclick = fill_option;
+  option1.onclick = fill;
   var option2 = document.createElement('div');
   option2.className = "option";
   option2.id = "option2_" + count;
-  option2.onclick = fill_option;
+  option2.onclick = fill;
   var option3 = document.createElement('div');
   option3.className = "option";
   option3.id = "option3_" + count;
-  option3.onclick = fill_option;
+  option3.onclick = fill;
   var answer = document.createElement('div');
   answer.className = "answer";
   answer.id = "answer_" + count;
-  answer.onclick = fill_answer;
+  answer.onclick = fill;
 
   var my_array = [1,2,3,4];
   var temp1 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
@@ -135,56 +87,19 @@ function new_card() {
 
   back_insert.appendChild(question);
 
-  if (temp1 == 1) {
-    back_insert.appendChild(option1);
-  }
-  else if (temp2 == 1) {
-    back_insert.appendChild(option2);
-  }
-  else if (temp3 == 1) {
-    back_insert.appendChild(option3);
-  }
-  else if (temp4 == 1) {
-    back_insert.appendChild(answer);
-  }
-
-  if (temp1 == 2) {
-    back_insert.appendChild(option1);
-  }
-  else if (temp2 == 2) {
-    back_insert.appendChild(option2);
-  }
-  else if (temp3 == 2) {
-    back_insert.appendChild(option3);
-  }
-  else if (temp4 == 2) {
-    back_insert.appendChild(answer);
-  }
-
-  if (temp1 == 3) {
-    back_insert.appendChild(option1);
-  }
-  else if (temp2 == 3) {
-    back_insert.appendChild(option2);
-  }
-  else if (temp3 == 3) {
-    back_insert.appendChild(option3);
-  }
-  else if (temp4 == 3) {
-    back_insert.appendChild(answer);
-  }
-
-  if (temp1 == 4) {
-    back_insert.appendChild(option1);
-  }
-  else if (temp2 == 4) {
-    back_insert.appendChild(option2);
-  }
-  else if (temp3 == 4) {
-    back_insert.appendChild(option3);
-  }
-  else if (temp4 == 4) {
-    back_insert.appendChild(answer);
+  for (var i = 1; i < 5; i++) {
+    if (temp1 == i) {
+      back_insert.appendChild(option1);
+    }
+    else if (temp2 == i) {
+      back_insert.appendChild(option2);
+    }
+    else if (temp3 == i) {
+      back_insert.appendChild(option3);
+    }
+    else if (temp4 == i) {
+      back_insert.appendChild(answer);
+    }
   }
 
   new_back.appendChild(back_insert);
