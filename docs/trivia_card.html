@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Trivia Template</title>
+  <link rel = "stylesheet" href="trivia_card.css">
+</head>
+<body>
+
+<button id="new_card_button" onclick="new_card(this)">Click to add card</button>
+
+<script>
+
+function fill_question() {
+
+  if (document.getElementById(this.id).innerHTML.length > 0) {
+    var ask = confirm("Keep as is?");
+    if (ask) {
+      var size = confirm("Keep same size?");
+      if (size) {
+      }
+      else {
+        var font_size = prompt("Enter size");
+        this.style.fontSize = font_size + "px";
+      }
+    }
+    else {
+      var change = prompt("Edit", document.getElementById(this.id).innerHTML);
+        document.getElementById(this.id).innerHTML = change;
+    }
+  }
+  else if (document.getElementById(this.id).innerHTML.length == 0) {
+    var question = prompt("Enter question");
+    document.getElementById(this.id).innerHTML= question;
+  }
+}
+
+function fill_option() {
+
+  if (document.getElementById(this.id).innerHTML.length > 0) {
+    var ask = confirm("Keep as is?");
+    if (ask) {
+      var size = confirm("Keep same size?");
+      if (size) {
+      }
+      else {
+        var font_size = prompt("Enter size");
+        this.style.fontSize = font_size + "px";
+      }
+    }
+    else {
+      var change = prompt("Edit", document.getElementById(this.id).innerHTML);
+        document.getElementById(this.id).innerHTML = change;
+    }
+  }
+  else if (document.getElementById(this.id).innerHTML.length == 0) {
+    var option = prompt("Enter option");
+    document.getElementById(this.id).innerHTML= option;
+  }
+}
+
+
+function fill_answer() {
+
+  if (document.getElementById(this.id).innerHTML.length > 0) {
+    var ask = confirm("Keep as is?");
+    if (ask) {
+      var size = confirm("Keep same size?");
+      if (size) {
+      }
+      else {
+        var font_size = prompt("Enter size");
+        this.style.fontSize = font_size + "px";
+      }
+    }
+    else {
+      var change = prompt("Edit", document.getElementById(this.id).innerHTML);
+        document.getElementById(this.id).innerHTML = change;
+    }
+  }
+  else if (document.getElementById(this.id).innerHTML.length == 0) {
+    var answer = prompt("Enter answer");
+    document.getElementById(this.id).innerHTML= answer;
+  }
+}
+
+var count = 1;
+
+function new_card() {
+
+  var initial_button = document.getElementById("new_card_button");
+  initial_button.remove();
+
+  var new_front = document.createElement('div');
+  new_front.className = "front_template";
+  document.body.appendChild(new_front);
+
+  var new_back = document.createElement('div');
+  new_back.className = "back_template";
+  var back_insert = document.createElement('div');
+  back_insert.className = "inner_rect";
+  var question = document.createElement('div');
+  question.className = "question";
+  question.id = "question_" + count;
+  question.onclick = fill_question;
+  var option1 = document.createElement('div');
+  option1.className = "option";
+  option1.id = "option1_" + count;
+  option1.onclick = fill_option;
+  var option2 = document.createElement('div');
+  option2.className = "option";
+  option2.id = "option2_" + count;
+  option2.onclick = fill_option;
+  var option3 = document.createElement('div');
+  option3.className = "option";
+  option3.id = "option3_" + count;
+  option3.onclick = fill_option;
+  var answer = document.createElement('div');
+  answer.className = "answer";
+  answer.id = "answer_" + count;
+  answer.onclick = fill_answer;
+
+  var my_array = [1,2,3,4];
+  var temp1 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+  x1 = my_array.indexOf(temp1);
+  my_array.splice(x1, 1);
+  var temp2 = my_array[Math.floor(my_array.length * Math.random())];
+  x2 = my_array.indexOf(temp2);
+  my_array.splice(x2, 1);
+  var temp3 = my_array[Math.floor(my_array.length * Math.random())];
+  x3 = my_array.indexOf(temp3);
+  my_array.splice(x3, 1);
+  var temp4 = my_array[0];
+
+  console.log(temp1, temp2, temp3, temp4);
+
+  back_insert.appendChild(question);
+
+  if (temp1 == 1) {
+    back_insert.appendChild(option1);
+  }
+  else if (temp2 == 1) {
+    back_insert.appendChild(option2);
+  }
+  else if (temp3 == 1) {
+    back_insert.appendChild(option3);
+  }
+  else if (temp4 == 1) {
+    back_insert.appendChild(answer);
+  }
+
+  if (temp1 == 2) {
+    back_insert.appendChild(option1);
+  }
+  else if (temp2 == 2) {
+    back_insert.appendChild(option2);
+  }
+  else if (temp3 == 2) {
+    back_insert.appendChild(option3);
+  }
+  else if (temp4 == 2) {
+    back_insert.appendChild(answer);
+  }
+
+  if (temp1 == 3) {
+    back_insert.appendChild(option1);
+  }
+  else if (temp2 == 3) {
+    back_insert.appendChild(option2);
+  }
+  else if (temp3 == 3) {
+    back_insert.appendChild(option3);
+  }
+  else if (temp4 == 3) {
+    back_insert.appendChild(answer);
+  }
+
+  if (temp1 == 4) {
+    back_insert.appendChild(option1);
+  }
+  else if (temp2 == 4) {
+    back_insert.appendChild(option2);
+  }
+  else if (temp3 == 4) {
+    back_insert.appendChild(option3);
+  }
+  else if (temp4 == 4) {
+    back_insert.appendChild(answer);
+  }
+
+  new_back.appendChild(back_insert);
+  document.body.appendChild(new_back);
+
+  var button = document.createElement('input');
+  button.type = "button";
+  button.onclick = new_card;
+  button.id = "new_card_button";
+  button.value = "Click to add card";
+  document.body.appendChild(button);
+
+  count++;
+}
+
+</script>
+
+</body>
+</html>
