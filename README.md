@@ -12,13 +12,15 @@ Trivia is undoubtedly a classic game. It's fun, it's simple, and it really revea
 
   * **Step 1:** Once the website is loaded, click on the "Create New Trivia Card" button to begin.
 
-  * **Step 2:** You will be prompted with a card (the face<sup id="ref1">[1](#foot1)</sup> followed by the back). To modify the back of each card, click on the empty white area to insert your question, and click on each answer rectangle to insert the different options. The white rectangle is intended to represent the correct answer<sup id="ref2">[1](#foot2)</sup>.
+  * **Step 2:** You will be prompted with a card (the face<sup id="ref1">[1](#foot1)</sup> followed by the back). To modify the back of each card, click on the empty white area to insert your question, and click on each answer rectangle to insert the different options. The white rectangle is intended to represent the correct answer<sup id="ref2">[2](#foot2)</sup>.
       * Clicking on these areas will display you with prompts, so just answer the questions accordingly. If you need to make changes after the fact, just re-click each area to be prompted again.
       * The font size can also be altered for each question and each option. To make use of this, just re-click the area intended to be modified, click "OK" when asked "Keep as is?", click "Cancel" when asked "Keep same size?", and then insert your desired text size.
 
   * **Step 3:** Click the "Add Card" button to add a new card.
 
   * **Step 4:** Repeat Steps 2 - 3 for however many cards you wish to create.
+
+  </br></br></br>
 
   <b id="foot1">1</b> The face of each card cannot be altered at this time. Support for this is in effect. [↩](#ref1)</br>
   <b id="foot2">2</b> For each card added, the correct answer rectangle will change positions for diversity. [↩](#ref2)
