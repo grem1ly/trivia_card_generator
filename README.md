@@ -8,6 +8,12 @@ Check it out: [Generator](https://grem1ly.github.io/trivia_card_generator/)
 
 Trivia is undoubtedly a classic game. It's fun, it's simple, and it really reveals just how many random facts you know. That being said, many trivia related games are genre specific and it can be difficult to find those that either you enjoy or excel at. I for one have always enjoyed the T.V. show Monk and have been dying to play some sort of Monk trivia. Given the lack of official products, I decided to create my own, and one such step involved creating the actual cards. Although there are a lot of platforms out there that enable the creation and even the production of trivia cards, they didn't appeal to me as I found them difficult to work with. Therefore, I created not only a trivia card template that I actually liked, but a generator as well to prevent a limit for the number of possible questions I could include. These cards are adaptable to any genre, so should you ever need to create your own trivia cards, feel free to use this tool!
 
+<p align="center">
+<b>Example:</b>
+</p>
+
+![Example](/images/example.PNG)
+
 ## How To Use It
 
   * **Step 1:** Once the website is loaded, click on the "Create New Trivia Card" button to begin.
