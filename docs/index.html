@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<button id="new_card_button" onclick="new_card(this)">Click to add card</button>
+<button class="new_card_button" onclick="new_card(this)" style="margin: auto;">Create New Trivia Card</button>
 
 <script>
 
@@ -87,8 +87,8 @@ var count = 1;
 
 function new_card() {
 
-  var initial_button = document.getElementById("new_card_button");
-  initial_button.remove();
+  var initial_button = document.getElementsByClassName("new_card_button");
+  initial_button[initial_button.length - 1].remove();
 
   var new_front = document.createElement('div');
   new_front.className = "front_template";
@@ -193,8 +193,9 @@ function new_card() {
   var button = document.createElement('input');
   button.type = "button";
   button.onclick = new_card;
-  button.id = "new_card_button";
-  button.value = "Click to add card";
+  button.className = "new_card_button";
+  button.value = "Add Card";
+  button.style.float = "left";
   document.body.appendChild(button);
 
   count++;

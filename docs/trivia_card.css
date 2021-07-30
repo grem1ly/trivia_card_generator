@@ -1,3 +1,7 @@
+.new_card_button{
+	display: flex;
+}
+
 .front_template{
 	float: left;
 	display: flex;
