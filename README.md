@@ -20,7 +20,7 @@ Trivia is undoubtedly a classic game. It's fun, it's simple, and it really revea
 
   * **Step 4:** Repeat Steps 2 - 3 for however many cards you wish to create.
 
-  </br></br></br>
+  </br></br>
 
   <b id="foot1">1</b> The face of each card cannot be altered at this time. Support for this is in effect. [↩](#ref1)</br>
   <b id="foot2">2</b> For each card added, the correct answer rectangle will change positions for diversity. [↩](#ref2)
