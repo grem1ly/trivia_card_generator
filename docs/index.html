@@ -11,9 +11,9 @@
 
 <script>
 
-function fill() {
+function fill(id, selection) {
 
-  if (document.getElementById(this.id).innerHTML.length > 0) {
+  if (document.getElementById(id).innerHTML.length > 0) {
     var ask = confirm("Keep as is?");
     if (ask) {
       var size = confirm("Keep same size?");
@@ -25,13 +25,21 @@ function fill() {
       }
     }
     else {
-      var change = prompt("Edit", document.getElementById(this.id).innerHTML);
-        document.getElementById(this.id).innerHTML = change;
+      var change = prompt("Edit", document.getElementById(id).innerHTML);
+        document.getElementById(id).innerHTML = change;
     }
   }
-  else if (document.getElementById(this.id).innerHTML.length == 0) {
-    var question = prompt("Enter question");
-    document.getElementById(this.id).innerHTML= question;
+  else if (document.getElementById(id).innerHTML.length == 0) {
+    if (selection == "question"){
+      var insert = prompt("Enter question");
+    }
+    else if (selection == "option"){
+      var insert = prompt("Enter option");
+    }
+    else{
+      var insert = prompt("Enter answer");
+    }
+    document.getElementById(id).innerHTML= insert;
   }
 }
 
@@ -53,23 +61,23 @@ function new_card() {
   var question = document.createElement('div');
   question.className = "question";
   question.id = "question_" + count;
-  question.onclick = fill;
+  question.onclick = function(){fill(question.id, "question")};
   var option1 = document.createElement('div');
   option1.className = "option";
   option1.id = "option1_" + count;
-  option1.onclick = fill;
+  option1.onclick = function(){fill(option1.id, "option")};
   var option2 = document.createElement('div');
   option2.className = "option";
   option2.id = "option2_" + count;
-  option2.onclick = fill;
+  option2.onclick = function(){fill(option2.id, "option")};
   var option3 = document.createElement('div');
   option3.className = "option";
   option3.id = "option3_" + count;
-  option3.onclick = fill;
+  option3.onclick = function(){fill(option3.id, "option")};
   var answer = document.createElement('div');
   answer.className = "answer";
   answer.id = "answer_" + count;
-  answer.onclick = fill;
+  answer.onclick = function(){fill(answer.id, "answer")};
 
   var my_array = [1,2,3,4];
   var temp1 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
