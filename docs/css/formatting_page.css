@@ -1,0 +1,86 @@
+
+#format_sidenav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background: #C8C8C8;
+}
+
+#color_palette, #color_palette_header, #reset_button_wrap, #continue_button_wrap {
+	overflow: hidden;
+}
+
+#color_palette_header, #input_hex_wrap {
+	font-family: Georgia, serif;
+	text-align: center;
+}
+
+#color_palette_header {
+	margin-top: 20px;
+	font-size: x-large;
+}
+
+#color_palette_squares {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.color_palette_square {
+	height: 50px;
+	width: 50px;
+	float: left;
+	margin: 10px;
+	border: 3px solid white;
+	border-radius: 10px;
+	display: flex;
+	cursor: pointer;
+}
+
+.color_palette_square:hover {
+	opacity: 0.75;
+}
+
+#input_hex_wrap {
+	margin: 30px 10px 0 10px;
+	font-size: large;
+}
+
+#input_hex {
+	height: 20px;
+	padding-left: 5px;
+	width: 50%;
+}
+
+#reset_button_wrap {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	bottom: 10px;
+}
+
+#continue_button_wrap {
+	position: absolute;
+	display: none;
+	justify-content: center;
+	left: 35%;
+	width: 65%;
+	bottom: 10px;
+}
+
+#input_hex, #reset_button, #continue_button {
+	border: 2px solid black;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#reset_button, #continue_button {
+	height: 25px;
+	font-size: medium;
+}
+
+/* template for the formatting page is specified in the homepage.css */

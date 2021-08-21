@@ -1,130 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Trivia Template</title>
+  <title>Trivia Card Template</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel = "stylesheet" href="trivia_card.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/homepage.css">
+  <link rel="stylesheet" href="./css/formatting_page.css">
+  <link rel="stylesheet" href="./css/generator_options_page.css">
+  <link rel="stylesheet" href="./css/trivia_cards_display.css">
+  <script src="./js/file_retriever.js"></script>
 </head>
 <body>
 
-<button class="new_card_button" onclick="new_card(this)" style="margin: auto;">Create New Trivia Card</button>
+  <div id="homepage_title">Trivia Cards<i class="fa">&#xf05a;</i></div>
+  <div id="format_sidenav">
+    <div id="color_palette">
+      <div id="color_palette_header">Select Color</div>
+      <div id="color_palette_squares"></div>
+      <div id="input_hex_wrap">Insert color:
+        <input id="input_hex" type="text" placeholder="black; #000000; etc."></input>
+      </div>
+      <div id="reset_button_wrap">
+        <button id="reset_button">Reset</button>
+      </div>
+    </div>
+  </div>
+  <div id="template">
+    <div id="format_front" class="front_template"></div>
+    <div id="format_back" class="back_template">
+      <div class="inner_rect">
+        <div class="question">What instrument does Monk play?</div>
+        <div class="option">A. the oboe</div>
+        <div class="answer">B. the piano</div>
+        <div class="option">C. the clarinet</div>
+        <div class="option">D. the harmonica</div>
+      </div>
+    </div>
+  </div>
+  <div id="trivia_info">
+    <p style="text-align: center;">Follow the step below to create your very own trivia cards:</p>
+    <ol>
+      <li>Click "Start"</li>
+      <li>Format your trivia cards
+        <ul>
+          <li>Color</li>
+          <li>Font (not currently supported)</li>
+          <li>Front Image (not currently supported)</li>
+        </ul>
+      </li>
+      <li>Choose your generation method
+        <ul>
+          <li>Upload a tsv specifying: question, option1, option2, option3, answer</li>
+          <li>Manually type your content into the template</li>
+        </ul>
+      </li>
+      <li>Save/export your cards (not currently supported)</li>
+    </ol>
+  </div>
+  <div id="start_button_wrap">
+    <button id="start_button">Start</button>
+  </div>
+  <div id="continue_button_wrap">
+    <button id="continue_button">Continue</button>
+  </div>
 
-<script>
+  <div id="card_generator_wrap">
+    <div id="upload_content" class="generator_option">
+      <div>Upload Trivia Cards</div>
+      <div>
+        <img src="./images/trivia_questions.png" alt="Trivia Questions">
+      </div>
+      <div id="upload_file">
+        <input id="upload_file_button" type="file"=></input>
+      </div>
+    </div>
+    <div id="manual_content" class="generator_option">
+      <div>Manually Create Trivia Cards</div>
+      <div>
+        <div class="back_template">
+          <div class="inner_rect">
+            <div class="question card-animation"><p>&nbsp;What instrument does Monk play?</p></div>
+            <div class="option card-animation">A.<p>&nbsp;the oboe</p></div>
+            <div class="answer card-animation">B.<p>&nbsp;the piano</p></div>
+            <div class="option card-animation">C.<p>&nbsp;the clarinet</p></div>
+            <div class="option card-animation">D.<p>&nbsp;the harmonica</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-function fill(id, selection) {
+  <div id="trivia_cards">
+    <div id="card_backs"></div>
+  </div>
 
-  if (document.getElementById(id).innerHTML.length > 0) {
-    var ask = confirm("Keep as is?");
-    if (ask) {
-      var size = confirm("Keep same size?");
-      if (size) {
-      }
-      else {
-        var font_size = prompt("Enter size");
-        this.style.fontSize = font_size + "px";
-      }
-    }
-    else {
-      var change = prompt("Edit", document.getElementById(id).innerHTML);
-        document.getElementById(id).innerHTML = change;
-    }
-  }
-  else if (document.getElementById(id).innerHTML.length == 0) {
-    if (selection == "question"){
-      var insert = prompt("Enter question");
-    }
-    else if (selection == "option"){
-      var insert = prompt("Enter option");
-    }
-    else{
-      var insert = prompt("Enter answer");
-    }
-    document.getElementById(id).innerHTML= insert;
-  }
-}
-
-var count = 1;
-
-function new_card() {
-
-  var initial_button = document.getElementsByClassName("new_card_button");
-  initial_button[initial_button.length - 1].remove();
-
-  var new_front = document.createElement('div');
-  new_front.className = "front_template";
-  document.body.appendChild(new_front);
-
-  var new_back = document.createElement('div');
-  new_back.className = "back_template";
-  var back_insert = document.createElement('div');
-  back_insert.className = "inner_rect";
-  var question = document.createElement('div');
-  question.className = "question";
-  question.id = "question_" + count;
-  question.onclick = function(){fill(question.id, "question")};
-  var option1 = document.createElement('div');
-  option1.className = "option";
-  option1.id = "option1_" + count;
-  option1.onclick = function(){fill(option1.id, "option")};
-  var option2 = document.createElement('div');
-  option2.className = "option";
-  option2.id = "option2_" + count;
-  option2.onclick = function(){fill(option2.id, "option")};
-  var option3 = document.createElement('div');
-  option3.className = "option";
-  option3.id = "option3_" + count;
-  option3.onclick = function(){fill(option3.id, "option")};
-  var answer = document.createElement('div');
-  answer.className = "answer";
-  answer.id = "answer_" + count;
-  answer.onclick = function(){fill(answer.id, "answer")};
-
-  var my_array = [1,2,3,4];
-  var temp1 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-  x1 = my_array.indexOf(temp1);
-  my_array.splice(x1, 1);
-  var temp2 = my_array[Math.floor(my_array.length * Math.random())];
-  x2 = my_array.indexOf(temp2);
-  my_array.splice(x2, 1);
-  var temp3 = my_array[Math.floor(my_array.length * Math.random())];
-  x3 = my_array.indexOf(temp3);
-  my_array.splice(x3, 1);
-  var temp4 = my_array[0];
-
-  console.log(temp1, temp2, temp3, temp4);
-
-  back_insert.appendChild(question);
-
-  for (var i = 1; i < 5; i++) {
-    if (temp1 == i) {
-      back_insert.appendChild(option1);
-    }
-    else if (temp2 == i) {
-      back_insert.appendChild(option2);
-    }
-    else if (temp3 == i) {
-      back_insert.appendChild(option3);
-    }
-    else if (temp4 == i) {
-      back_insert.appendChild(answer);
-    }
-  }
-
-  new_back.appendChild(back_insert);
-  document.body.appendChild(new_back);
-
-  var button = document.createElement('input');
-  button.type = "button";
-  button.onclick = new_card;
-  button.className = "new_card_button";
-  button.value = "Add Card";
-  button.style.float = "left";
-  document.body.appendChild(button);
-
-  count++;
-}
-
-</script>
+  <script src="./js/trivia_card_formatting.js"></script>
+  <script src="./js/generation_options.js"></script>
+  <script src="./js/trivia_card_generator.js"></script>
+  <script src="./js/event_listeners.js"></script>
 
 </body>
 </html>

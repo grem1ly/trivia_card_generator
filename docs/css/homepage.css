@@ -1,0 +1,89 @@
+
+#homepage_title {
+	margin-top: 30px;
+	font-size: xxx-large;
+	cursor: default;
+	font-family: Georgia, serif;
+	text-align: center;
+}
+
+.fa {
+	font-size: 18px; 
+	color: blue; 
+	vertical-align: top;
+	cursor: pointer;
+}
+
+.fa:hover {
+	transform: scale(1.1);
+}
+
+#template, #trivia_info {
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	transition: opacity 0.3s;
+	position: absolute;
+}
+
+#template {
+	gap: 20px;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+#format_back div {
+	cursor: default;
+}
+
+#trivia_info {
+	display: none;
+	flex-direction: column;
+	width: 496.16px;
+	height: 332.16px;
+	opacity: 0;
+	border: 2px solid black;
+	border-radius: 10px;
+	box-shadow: 5px 10px 18px #888888;
+	font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+}
+
+ul {
+	list-style-type: disc;
+	padding-inline-start: 25px;
+}
+
+ol {
+	margin: 0;
+}
+
+ol li::marker {
+	font-weight: bold;
+}
+
+ol > li {
+	margin: 10px;
+}
+
+#start_button_wrap {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	left: 0;
+	bottom: 40px;
+}
+
+#start_button {
+	border: 2px solid black;
+	border-radius: 10px;
+	cursor: pointer;
+	height: 30px;
+	font-size: medium;
+}
+
+#start_button:hover {
+	transform: scale(1.1);
+}
