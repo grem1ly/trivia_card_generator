@@ -1,4 +1,13 @@
 
+@media (min-width: 601px) {
+	.fa:hover {
+		transform: scale(1.1);
+	}
+	#start_button:hover {
+		transform: scale(1.1);
+	}
+}
+
 #homepage_title {
 	margin-top: 30px;
 	font-size: xxx-large;
@@ -12,10 +21,6 @@
 	color: blue; 
 	vertical-align: top;
 	cursor: pointer;
-}
-
-.fa:hover {
-	transform: scale(1.1);
 }
 
 #template, #trivia_info {
@@ -71,6 +76,10 @@ ol > li {
 	margin: 10px;
 }
 
+.close_button {
+	display: none;
+}
+
 #start_button_wrap {
 	position: absolute;
 	display: flex;
@@ -88,6 +97,7 @@ ol > li {
 	font-size: medium;
 }
 
-#start_button:hover {
-	transform: scale(1.1);
+#start_button:active {
+	transform: scale(0.9);
 }
+

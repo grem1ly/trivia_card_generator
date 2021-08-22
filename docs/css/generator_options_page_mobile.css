@@ -1,0 +1,28 @@
+
+@media (max-width: 600px) {
+
+#card_generator_wrap {
+	flex-direction: column;
+	gap: 30px;
+	overflow: auto;
+	justify-content: flex-start;
+	padding: 25px 0;
+}
+
+.generator_option {
+	margin: 0;
+	width: 75%;
+	height: 100%;
+	padding: 10px;
+}
+
+.generator_option > div:nth-child(1) {
+	margin-top: 5px;
+	font-size: 22px;
+}
+
+#manual_content > div:nth-child(2) {
+	padding: 20px 30px 30px 30px;
+}
+
+}

@@ -1,14 +1,25 @@
 
+@media (min-width: 601px) {
+	#format_sidenav {
+		top: 0;
+	}
+	.color_palette_square:hover, #reset_button:hover, #continue_button:hover {
+		transform: scale(1.1);
+	}
+	#reset_button, #continue_button {
+		margin: 10px;
+	}
+}
+
 #format_sidenav {
 	position: fixed;
-	top: 0;
 	left: 0;
 	width: 0;
 	height: 100%;
 	background: #C8C8C8;
 }
 
-#color_palette, #color_palette_header, #reset_button_wrap, #continue_button_wrap {
+#format_sidenav, #continue_button_wrap {
 	overflow: hidden;
 }
 
@@ -40,8 +51,8 @@
 	cursor: pointer;
 }
 
-.color_palette_square:hover {
-	opacity: 0.75;
+.color_palette_square:active {
+	transform: scale(0.9);
 }
 
 #input_hex_wrap {

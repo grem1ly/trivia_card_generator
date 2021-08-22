@@ -1,11 +1,29 @@
 /* Event Listeners */
 
 // Information Button: Enable the display of information for how to make your own trivia cards
-document.querySelector(".fa").addEventListener("mouseover", function() { info("display") });
-document.querySelector(".fa").addEventListener("mouseout", function() { info("hide") });
+var screen_size_match = window.matchMedia("(max-width: 600px)");
+screen_size_display(screen_size_match);
+screen_size_match.addListener(screen_size_display);
+
+function screen_size_display(screen_size_match) {
+  if (screen_size_match.matches) {
+    document.querySelector(".fa").addEventListener("click", function() {
+      setTimeout(function() { info("display") }, 125);
+    });
+    document.querySelector(".close_button").addEventListener("click", function() {
+      setTimeout(function() { info("hide") }, 125);
+    });
+  }
+  else {
+    document.querySelector(".fa").addEventListener("mouseover", function() { info("display") });
+    document.querySelector(".fa").addEventListener("mouseout", function() { info("hide") });
+  }
+}
 
 // Start Button: Promp formatting of trivia cards
-document.getElementById("start_button").addEventListener("click", start);
+document.getElementById("start_button").addEventListener("click", function() {
+  setTimeout(start, 150);
+});
 
 // Input Hex Field: Input your own trivia card colors
 var input_hex = document.getElementById("input_hex");

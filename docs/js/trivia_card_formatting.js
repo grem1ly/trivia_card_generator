@@ -26,21 +26,36 @@ function start(){
   document.getElementById("homepage_title").style.display = "none";
   document.getElementById("start_button_wrap").style.display = "none";
 
-  var format_screen = document.getElementById("format_sidenav");
-  format_screen.style.width = "35%";
-  format_screen.style.transition = "width 0.5s";
+  var screen_size_match = window.matchMedia("(max-width: 600px)");
 
-  var template = document.getElementById("template");
-  template.style.width = "65%";
-  template.style.right = "0%";
-  template.style.transform = "translateY(-50%)"
-  template.style.transition = "width 0.5s";
+  if (screen_size_match.matches) {
+    var format_screen = document.getElementById("format_sidenav");
+    format_screen.style.height = "42%";
+    format_screen.style.transition = "all 0.5s";
 
-  setTimeout(function() {   document.getElementById("continue_button_wrap").style.display = "flex"; }, 500);
+    var template = document.getElementById("template");
+    template.style.top = "0";
+    template.style.marginTop = "10px";
+    template.style.transform = "translateX(50%)";
+    template.style.transition = "all 0.5s";
+    document.getElementById("continue_button_wrap").style.display = "flex";
+  }
+  else {
+    var format_screen = document.getElementById("format_sidenav");
+    format_screen.style.width = "35%";
+    format_screen.style.transition = "width 0.5s";
+
+    var template = document.getElementById("template");
+    template.style.width = "65%";
+    template.style.right = "0%";
+    template.style.transform = "translateY(-50%)"
+    template.style.transition = "width 0.5s";
+
+    setTimeout(function() {   document.getElementById("continue_button_wrap").style.display = "flex"; }, 500);
+  }
 }
 
 // Present pre-selected colors for the trivia cards
-
 var hex_codes = ["#537E90", "#F3AD2C", "#FFCCDD", "#B08EA2", "#3F6C51", "#48C9B0", "#D35400", "#EC7063", "#3498DB", "#17202A"];
 
 function display_color_options() {

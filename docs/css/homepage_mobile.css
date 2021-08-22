@@ -1,0 +1,61 @@
+
+@media (max-width: 600px) {
+
+#homepage_title {
+	margin-top: 40px;
+	font-size: xx-large;
+}
+
+.fa:active, .close_button:active {
+	transform: scale(0.9);
+}
+
+.front_template, .back_template {
+	height: 249.08px;
+	width: 155px;
+}
+
+.inner_rect{
+	height: 234.08px;
+	width: 140px;
+}
+
+.question{
+	margin-top: 5px;
+	height: 35%;
+	font-size: 15px;
+}
+
+.option, .answer {
+	font-size: 13px;
+}
+
+#trivia_info {
+	width: 330px;
+	height: 249.08px;
+	font-size: 13px;
+}
+
+#trivia_info > p {
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+ol {
+	margin: 0;
+	padding-inline-start: 25px;
+}
+
+.close_button {
+	display: flex;
+	position: fixed;
+	top: 2px;
+	right: 2px;
+	height: 10px;
+	border: 1px solid grey;
+	border-radius: 5px;
+	align-items: center;
+	padding: 2px 5px;
+}
+
+}

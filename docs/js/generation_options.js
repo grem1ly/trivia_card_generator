@@ -2,16 +2,27 @@
 
 // Display options for trivia card generation: either upload your own cards (i.e. questions, options, answers) or manually create your own
 function prompt_card_generation(){
-  document.getElementById("continue_button_wrap").style.display = "none";
+
+  var screen_size_match = window.matchMedia("(max-width: 600px)");
+
+  if (screen_size_match.matches) {
+    var format_screen = document.getElementById("format_sidenav");
+    format_screen.style.height = "0";
+    format_screen.style.transition = "all 0.5s";
+    setTimeout(function(){
+      document.getElementById("continue_button_wrap").style.display = "none";
+    }, 325);
+  }
+  else {
+    document.getElementById("continue_button_wrap").style.display = "none";
+    var format_screen = document.getElementById("format_sidenav");
+    format_screen.style.width = "0";
+    format_screen.style.transition = "width 0.5s";
+
+  }
 
   setTimeout(function() { document.getElementById("card_generator_wrap").style.display = "flex" }, 525);
-
-  var format_screen = document.getElementById("format_sidenav");
-  format_screen.style.width = "0";
-  format_screen.style.transition = "width 0.5s";
-
   document.getElementById("template").style.display = "none";
-
   animate_card();
 }
 
@@ -106,9 +117,19 @@ function upload_content() {
   var upload_selection = document.getElementById("upload_content");
   upload_selection.style.width = "75%";
   upload_selection.style.background = "whitesmoke";
-  upload_selection.style.boxShadow = "none";
   upload_selection.classList.add("nohover");
   upload_selection.style.cursor = "default";
+
+  var screen_size_match = window.matchMedia("(max-width: 600px)");
+  if (screen_size_match.matches) {
+    upload_selection.style.top = "50%";
+    upload_selection.style.left = "50%";
+    upload_selection.style.height = "80%";
+    upload_selection.style.position = "absolute";
+    upload_selection.style.transform = "translate(-50%, -50%)";
+    upload_selection.style.overflow = "hidden";
+    document.querySelector("#upload_content div:nth-child(2)").style.padding = "10px";
+  }
 
   document.getElementById("upload_file").style.display = "flex";
 }

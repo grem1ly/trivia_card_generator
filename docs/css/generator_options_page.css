@@ -1,11 +1,19 @@
 
+@media (min-width: 601px) {
+	.generator_option:not(.nohover):hover {
+		transform: scale(1.1);
+	}
+	#card_generator_wrap {
+		position: fixed;
+		left: 0;
+		top: 0;
+	}
+}
+
 #card_generator_wrap {
 	display: none;
 	justify-content: center;
 	align-items: center;
-	position: fixed;
-	left: 0;
-	top: 0;
 }
 
 .generator_option {
@@ -24,10 +32,6 @@
 	cursor: pointer;
 	background: whitesmoke;
 	transition: transform .2s;
-}
-
-.generator_option:not(.nohover):hover {
-	transform: scale(1.1);
 }
 
 .generator_option img, #card_generator_wrap {
