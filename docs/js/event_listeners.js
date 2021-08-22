@@ -23,5 +23,7 @@ document.getElementById("manual_content").addEventListener("click", manual_entry
 
 // Upload Trivia Card Content Button: arrange question, options, and answer in tsv format
 document.getElementById("upload_file_button").addEventListener("change", function() {
-  get_questions(this.value);
-})
+  parse(this.files[0]).then(file => {
+    read_trivia_content2(file);
+  });
+});

@@ -50,6 +50,10 @@
 	font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
 }
 
+#trivia_info > p {
+	text-align: center;
+}
+
 ul {
 	list-style-type: disc;
 	padding-inline-start: 25px;

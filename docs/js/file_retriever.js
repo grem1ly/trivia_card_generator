@@ -1,30 +1,23 @@
 /* File Retriever */
 
-// Create XMLHttpRequest request in order to read trivia card tsv files
-function get(url) {
-  return new Promise(function(resolve, reject) {
-    var req = new XMLHttpRequest();
-    req.open("GET", url);
-    req.onload = function() {
-      if(req.status == 200) {
-        resolve(req.response);
-      }
-      else {
-        reject(Error(req.statusText));
-      }
+function parse(file) {
+  return new Promise((resolve, reject) => {
+    let content = '';
+    const reader = new FileReader();
+    reader.onloadend = function(e) {
+      content = e.target.result;
+      const result = content.split(/\r\n|\n/);
+      resolve(result);
     };
-    req.onerror = function() {
-      reject(Error("Network Error"));
+    reader.onerror = function(e) {
+      reject(e);
     };
-    req.send();
+    reader.readAsText(file);
   });
 }
 
-// Extract trivia card information in the desired format (i.e. split along tabs)
-async function read_trivia_content(filename) {
-  var rawdata = await get(filename);
-  var lines = rawdata.split("\n");
-  lines.shift();
-  let content = lines.map(item => item.replaceAll("\r", "").split("\t"));
-  return content;
+function read_trivia_content2(file) {
+  file.shift();
+  let content = file.map(item => item.split("\t"));
+  get_questions(content);
 }

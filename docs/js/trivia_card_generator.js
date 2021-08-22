@@ -3,20 +3,16 @@
 // Set count to establish unique ids for each card - necessary for retroactive changes
 var count = 1;
 
-// Enable the reading of a tsv file for content extraction (assume tsv format: question option1 option2 option3 answer)
-  // Enable work around for fake filepath: strip path to file name (assume specified directory location - for now it's just the same as the index.html)
-async function get_questions(trivia_card_upload){
+// Enable the reading of a txt file for content extraction (assume tsv format: question option1 option2 option3 answer)
+function get_questions(trivia_card_upload){
 
   document.getElementById("card_generator_wrap").style.display = "none";
   document.getElementById("trivia_cards").style.display = "flex";
 
-  trivia_card_upload = trivia_card_upload.toString().split("\\").pop();
-  let trivia_questions = await read_trivia_content("./data/" + trivia_card_upload);
-
-  for (var i = 0; i < trivia_questions.length; i++){
-    let question = trivia_questions[i][0];
-    let options = trivia_questions[i].slice(1, 4);
-    let answer = trivia_questions[i][4]
+  for (var i = 0; i < trivia_card_upload.length; i++){
+    let question = trivia_card_upload[i][0];
+    let options = trivia_card_upload[i].slice(1, 4);
+    let answer = trivia_card_upload[i][4]
 
     new_card(question, options, answer);
   }

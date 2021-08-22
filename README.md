@@ -33,6 +33,6 @@ Trivia is undoubtedly a classic game. It's fun, it's simple, and it really revea
   </br>
 
   <b id="foot1">1</b> The steps are also made available when hovering over the information icon on the homepage. [←](#ref1)</br>
-  <b id="foot2">2</b> The tsv file to be uploaded is assumed to "live" in the `./data` folder; this is a workaround for accessing local files. [←](#ref2)</br>
+  <b id="foot2">2</b> Although the file to be uploaded is expected to follow a tsv format, the file itself should be a **.txt** file. The original upload method used XMLHTTP requests to read direct tsv files, but due to the inability to access and read local files, a workaround was required. I would recommend creating a tsv file and then converting/saving it subsequently as a text file. The `./docs/data/` folder contains an example tsv and txt file for reference. [←](#ref2)</br>
   <b id="foot3">3</b> Since the face of each card cannot be customized, only the backs are presented. [←](#ref3)</br>
   <b id="foot4">4</b> For each card added, the correct answer rectangle will change positions for diversity. [←](#ref4)
